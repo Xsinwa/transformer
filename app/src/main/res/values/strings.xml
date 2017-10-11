@@ -1,0 +1,250 @@
+<resources>
+    <string name="app_name">换算器</string>
+    <string name="transformer">变压器类</string>
+    <string name="cables">电缆类</string>
+    <string name="DC_Resistance_transform">直阻换算</string>
+    <string name="Equipment">按变电设备</string>
+    <string name="testProject">按试验项目</string>
+    <string name="DRC">直阻变换</string>
+    <string name="DLC">介损换算</string>
+    <string name="IRC">绝缘电阻换算</string>
+    <string name="ITC">红外测温换算</string>
+    <string name="BBRC">不平衡率计算</string>
+    <string name="TT">三角转换</string>
+    <string name="high_voltage">高压档位</string>
+    <string name="medium_voltage">中压档位</string>
+    <string name="low_voltage">低压档位</string>
+    <string name="temperatureoftest">实测值温度:</string>
+    <string name="tempOfTransform">换算值温度:</string>
+    <string name="valueOfTest">实测值:</string>
+    <string name="valueOfTransform">换算值:</string>
+    <string name="transform">换&#160;&#160;&#160;算</string>
+    <string name="historyValue">历史记录</string>
+    <string name="gear">档位</string>
+    <string name="winding_connection_mode">绕组连接方式</string>
+    <string name="YMode">Y型</string>
+    <string name="TMode">△型</string>
+    <string name="cs_cable">电缆截面:</string>
+    <string name="rated_voltage">额定电压U0(kV):</string>
+    <string name="unitCap">单位电容量μF/km:</string>
+    <string name="copper">铜</string>
+    <string name="aluminum">铝</string>
+    <string name="user_name">用户名:</string>
+    <string name="passwords">密&#160;&#160;&#160;&#160;码:</string>
+    <string name="auto_login">自动登陆</string>
+    <string name="rem_passwords">记住密码</string>
+
+    <string-array name="cs10_array6">
+        <item>3*35</item>
+        <item>3*50</item>
+        <item>3*70</item>
+        <item>3*95</item>
+        <item>3*120</item>
+        <item>3*150</item>
+        <item>3*185</item>
+        <item>3*240</item>
+        <item>3*300</item>
+        <item>3*400</item>
+        <item>3*500</item>
+        <item>3*630</item>
+    </string-array>
+
+    <string-array name="cs10_array8">
+        <item>3*35</item>
+        <item>3*50</item>
+        <item>3*70</item>
+        <item>3*95</item>
+        <item>3*120</item>
+        <item>3*150</item>
+        <item>3*185</item>
+        <item>3*240</item>
+        <item>3*300</item>
+        <item>3*400</item>
+    </string-array>
+
+    <string-array name="cs35_array">
+        <item>3*50</item>
+        <item>3*70</item>
+        <item>3*95</item>
+        <item>3*120</item>
+        <item>3*150</item>
+        <item>3*185</item>
+        <item>3*240</item>
+        <item>3*300</item>
+        <item>3*400</item>
+    </string-array>
+
+    <string-array name="cs110_array">
+        <item>3*240</item>
+        <item>3*300</item>
+        <item>3*400</item>
+        <item>3*500</item>
+        <item>3*630</item>
+        <item>3*800</item>
+        <item>3*1000</item>
+        <item>3*1200</item>
+        <item>3*1400</item>
+        <item>3*1600</item>
+        <item>3*1800</item>
+        <item>3*2000</item>
+    </string-array>
+
+    <string-array name="cs220_array">
+        <item>3*400</item>
+        <item>3*500</item>
+        <item>3*630</item>
+        <item>3*800</item>
+        <item>3*1000</item>
+        <item>3*1200</item>
+        <item>3*1400</item>
+        <item>3*1600</item>
+        <item>3*1800</item>
+        <item>3*2000</item>
+        <item>3*2200</item>
+        <item>3*2500</item>
+    </string-array>
+
+    <string-array name="rv10_array">
+        <item>6</item>
+        <item>8.7</item>
+    </string-array>
+
+    <string-array name="rv35_array">
+        <item>21</item>
+        <item>26</item>
+    </string-array>
+
+    <string-array name="unitCap6_array">
+        <item>0.212</item>
+        <item>0.237</item>
+        <item>0.27</item>
+        <item>0.301</item>
+        <item>0.327</item>
+        <item>0.358</item>
+        <item>0.388</item>
+        <item>0.43</item>
+        <item>0.472</item>
+        <item>0.531</item>
+        <item>0.603</item>
+        <item>0.607</item>
+    </string-array>
+
+    <string-array name="unitCap8_array">
+        <item>0.173</item>
+        <item>0.192</item>
+        <item>0.217</item>
+        <item>0.24</item>
+        <item>0.261</item>
+        <item>0.284</item>
+        <item>0.307</item>
+        <item>0.339</item>
+        <item>0.37</item>
+        <item>0.418</item>
+    </string-array>
+
+    <string-array name="unitCap35_array21">
+        <item>0.118</item>
+        <item>0.131</item>
+        <item>0.143</item>
+        <item>0.153</item>
+        <item>0.164</item>
+        <item>0.18</item>
+        <item>0.194</item>
+        <item>0.211</item>
+        <item>0.231</item>
+    </string-array>
+
+    <string-array name="unitCap35_array26">
+        <item>0.114</item>
+        <item>0.125</item>
+        <item>0.135</item>
+        <item>0.143</item>
+        <item>0.153</item>
+        <item>0.163</item>
+        <item>0.176</item>
+        <item>0.19</item>
+        <item>0.209</item>
+    </string-array>
+
+    <string-array name="unitCap110_array">
+        <item>0.129</item>
+        <item>0.139</item>
+        <item>0.156</item>
+        <item>0.169</item>
+        <item>0.188</item>
+        <item>0.214</item>
+        <item>0.231</item>
+        <item>0.242</item>
+        <item>0.259</item>
+        <item>0.273</item>
+        <item>0.284</item>
+        <item>0.296</item>
+    </string-array>
+
+    <string-array name="unitCap220_array">
+        <item>0.118</item>
+        <item>0.124</item>
+        <item>0.138</item>
+        <item>0.155</item>
+        <item>0.172</item>
+        <item>0.179</item>
+        <item>0.19</item>
+        <item>0.198</item>
+        <item>0.207</item>
+        <item>0.215</item>
+        <item>0.221</item>
+        <item>0.232</item>
+    </string-array>
+
+    <string-array name="Evhvt_array">
+        <item>3</item>
+        <item>6</item>
+        <item>9</item>
+        <item>12</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
+
+    <string-array name="ReactorConnMode_array">
+        <item>两串两并</item>
+        <item>三串</item>
+    </string-array>
+
+    <string-array name="ReactorConnMode35_array">
+        <item>单节</item>
+        <item>两并</item>
+        <item>三并</item>
+        <item>四并</item>
+    </string-array>
+
+    <string-array name="Evvcm_array">
+        <item>两串</item>
+        <item>两并</item>
+    </string-array>
+
+    <string-array name="ReactorConnMode220_array">
+        <item>单台</item>
+        <item>两串</item>
+    </string-array>
+
+    <string-array name="ReactorConnMode110_array">
+        <item>单台</item>
+        <item>两并</item>
+    </string-array>
+
+
+    <string-array name="Evlvt_array">
+        <item>460</item>
+        <item>500</item>
+        <item>550</item>
+    </string-array>
+    
+    <string-array name="Isr_array110">
+        <item>142</item>
+    </string-array>
+
+    <string-array name="Isr_array220">
+        <item>142</item>
+        <item>820</item>
+    </string-array>
+</resources>

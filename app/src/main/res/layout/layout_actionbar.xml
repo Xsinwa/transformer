@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/chat_content_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#5CACEE"
+        android:fitsSystemWindows="true"
+        android:clipToPadding="true"
+        app:contentInsetLeft="0dip"
+        app:contentInsetStart="0dip">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/backward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true">
+                <ImageView
+                    android:layout_width="32dip"
+                    android:layout_height="32dip"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/backward"/>
+
+                <TextView
+                    android:id="@+id/navigation_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/top_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
+
+            <ImageView
+                android:id="@+id/detail_chat"
+                android:layout_width="22dip"
+                android:layout_height="22dip"
+                android:layout_marginRight="10dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+</merge>

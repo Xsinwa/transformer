@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.xsinwa.scaleunit.activity.MainActivity"
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/Equipment"
+        android:textSize="20dp"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/holo_blue_light"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <Button
+            android:id="@+id/transformer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="20dp"
+            android:text="@string/transformer"
+            android:textSize="18sp"
+            android:background="@drawable/button_style" />
+
+        <Button
+            android:id="@+id/cable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="20dp"
+            android:text="@string/cables"
+            android:textSize="18sp"
+            android:background="@drawable/button_style" />
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="invisible"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="20dp"
+        android:text="@string/testProject"
+        android:textSize="20dp"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/holo_blue_light"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="100dp">
+
+        <Button
+            android:id="@+id/DRC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="20dp"
+            android:text="@string/DRC"
+            android:textSize="20sp"
+            android:background="@drawable/button_style"/>
+
+        <Button
+            android:id="@+id/DLC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="20dp"
+            android:text="@string/DLC"
+            android:textSize="20sp"
+            android:background="@drawable/button_style"/>
+
+        <Button
+            android:id="@+id/IRC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/DRC"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:padding="10dp"
+            android:text="@string/IRC"
+            android:textSize="16sp"
+            android:background="@drawable/button_style"/>
+
+        <Button
+            android:id="@+id/ITC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/DLC"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:padding="10dp"
+            android:text="@string/ITC"
+            android:textSize="16sp"
+            android:background="@drawable/button_style"/>
+    </RelativeLayout>
+
+</LinearLayout>

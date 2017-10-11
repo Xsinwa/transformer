@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/layout_actionbar"
+        android:fitsSystemWindows="true"
+        android:clipToPadding="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="换算方式"
+        android:textSize="18sp"/>
+
+    <RadioGroup
+        android:id="@+id/trans_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <RadioButton
+            android:id="@+id/Drc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="直阻换算"/>
+
+        <RadioButton
+            android:id="@+id/Bbrc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="不平衡率换算"/>
+
+        <RadioButton
+            android:id="@+id/trans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="三角换算"/>
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/temperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="温度T1:"/>
+        <com.xsinwa.scaleunit.ui.MyEditText
+            android:id="@+id/input_T1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_shape"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="温度T2:"/>
+        <com.xsinwa.scaleunit.ui.MyEditText
+            android:id="@+id/input_T2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittext_shape"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/conn_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/winding_connection_mode"
+            android:textSize="18sp"/>
+        <RadioGroup
+            android:id="@+id/wind_conn_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:paddingRight="10dp">
+
+            <RadioButton
+                android:id="@+id/YMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/YMode"/>
+
+            <RadioButton
+                android:id="@+id/TMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/TMode"/>
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/edittext_shape">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="档位"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Rab"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Rbc"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Rca"
+                    android:textSize="16sp"
+                    android:id="@+id/textView5" />
+            </LinearLayout>
+
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+
+            <com.xsinwa.scaleunit.ui.CustomeItem
+                android:id="@+id/item17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"></com.xsinwa.scaleunit.ui.CustomeItem>
+        </LinearLayout>
+    </ScrollView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/input_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:background="@drawable/edittext_shape"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"></android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/transformer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/transform"
+        android:textSize="16sp"
+        android:background="@drawable/button_style"/>
+
+</LinearLayout>

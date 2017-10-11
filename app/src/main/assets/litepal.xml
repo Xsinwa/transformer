@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<litepal>
+    <dbname value="transforms"></dbname>
+    <version value="1"></version>
+
+    <list>
+        <mapping class="com.xsinwa.scaleunit.db.ResultInfo" />
+        <mapping class="com.xsinwa.scaleunit.db.DrcResultInfo" />
+        <mapping class="com.xsinwa.scaleunit.db.IrcResultInfo" />
+        <mapping class="com.xsinwa.scaleunit.db.ItcResultInfo" />
+    </list>
+
+</litepal>
