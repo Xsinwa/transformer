@@ -123,7 +123,6 @@ public class ItcActivity extends AppCompatActivity implements View.OnClickListen
                     SimpleDateFormat timeFormat = new SimpleDateFormat("MM-dd HH:mm");
                     String time = timeFormat.format(date);
                     itcResultInfo.setDate(time);
-                    itcResultInfo.save();
                     ItcResultList.add(0, itcResultInfo);
                     itcResultAdapter.notifyDataSetChanged();
                     ItcRecyclerView.invalidate();

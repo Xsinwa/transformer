@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">换算器</string>
+    <string name="app_name">试验辅助平台</string>
     <string name="transformer">变压器类</string>
     <string name="cables">电缆类</string>
     <string name="DC_Resistance_transform">直阻换算</string>
@@ -205,12 +205,12 @@
         <item>25</item>
     </string-array>
 
-    <string-array name="ReactorConnMode_array">
+    <string-array name="ReactorConnMode35_array">
         <item>两串两并</item>
         <item>三串</item>
     </string-array>
 
-    <string-array name="ReactorConnMode35_array">
+    <string-array name="ReactorConnMode_array">
         <item>单节</item>
         <item>两并</item>
         <item>三并</item>

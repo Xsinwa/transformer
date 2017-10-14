@@ -162,7 +162,6 @@ public class DrcAcitivity extends Activity implements View.OnClickListener {
                     String time = timeFormat.format(date);
                     resultInfo.setDate(time);
                     resultInfo.setResult(eR2.getText().toString());
-                    resultInfo.save();
                     ResultList.add(0, resultInfo);
                     mAdapter.notifyDataSetChanged();
                     DrcRecyclerView.invalidate();

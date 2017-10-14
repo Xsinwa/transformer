@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="励磁变高压抽头(kV):"
+            android:text="励磁变高压抽头(V):"
             android:textSize="16sp" />
         <Spinner
             android:id="@+id/Evhvt"
@@ -99,10 +99,13 @@
             android:text="单台电抗器电感L(H):"
             android:textSize="16sp"/>
 
-        <Spinner
-            android:id="@+id/isr_spinner"
+        <com.xsinwa.scaleunit.ui.MyEditText
+            android:id="@+id/tISR"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittext_shape"/>
     </LinearLayout>
 
     <LinearLayout
@@ -121,14 +124,11 @@
             android:textSize="16sp"
             android:id="@+id/textView2" />
 
-        <TextView
+        <com.xsinwa.scaleunit.ui.MyEditText
             android:id="@+id/unitcap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:paddingLeft="10dp"
-            android:textSize="16sp"
             android:background="@drawable/edittext_shape"/>
     </LinearLayout>
 
@@ -147,15 +147,12 @@
             android:textSize="16sp"
             android:id="@+id/textView" />
 
-        <TextView
+        <com.xsinwa.scaleunit.ui.MyEditText
             android:id="@+id/rated_vol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"
             android:layout_marginRight="20dp"
-            android:paddingLeft="10dp"
-            android:textSize="16sp"
             android:background="@drawable/edittext_shape"/>
     </LinearLayout>
 
@@ -172,16 +169,13 @@
             android:text="单台电抗器直阻R(Ω):"
             android:textSize="16sp"/>
 
-        <TextView
+        <com.xsinwa.scaleunit.ui.MyEditText
+            android:id="@+id/drsr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"
             android:layout_marginRight="20dp"
-            android:paddingLeft="10dp"
-            android:background="@drawable/edittext_shape"
-            android:textSize="16sp"
-            android:id="@+id/drsr" />
+            android:background="@drawable/edittext_shape"/>
     </LinearLayout>
 
     <LinearLayout
@@ -222,6 +216,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="变频电源容量(kW):"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/fc_power_capa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edittext_shape"
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:maxLength="10"/>
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -440,33 +462,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="变频电源容量(kW):"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:id="@+id/fc_power_capa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="20dp"
-                android:paddingLeft="10dp"
-                android:background="@drawable/edittext_shape"
-                android:textSize="16sp"
-                android:singleLine="true"
-                android:maxLength="10"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="所需试验容量(kVA):"
                 android:textSize="16sp"/>
             <TextView
@@ -518,7 +513,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="励磁变高压抽头(kV):"
+                android:text="励磁变高压抽头(V):"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/EVHV"

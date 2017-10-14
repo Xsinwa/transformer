@@ -5,7 +5,7 @@ import org.litepal.crud.DataSupport;
 /**
  * Created by Xsinwa on 2017/10/3.
  */
-public class IrcResultInfo extends DataSupport{
+public class IrcResultInfo {
     private String results;
     private String date;
 

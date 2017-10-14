@@ -6,7 +6,7 @@ import org.litepal.crud.DataSupport;
  * Created by Xsinwa on 2017/10/2.
  */
 
-public class DrcResultInfo extends DataSupport{
+public class DrcResultInfo {
     private String result;
     private String date;
 

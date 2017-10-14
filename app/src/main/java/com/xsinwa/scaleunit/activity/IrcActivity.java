@@ -113,7 +113,6 @@ public class IrcActivity extends AppCompatActivity implements View.OnClickListen
                     String time = timeFormat.format(date);
                     ircResultInfo.setDate(time);
                     ircResultInfo.setResults(eR2.getText().toString());
-                    ircResultInfo.save();
                     IrcResultInfoList.add(0, ircResultInfo);
                     mAdapter.notifyDataSetChanged();
                     IrcRecyclerView.invalidate();

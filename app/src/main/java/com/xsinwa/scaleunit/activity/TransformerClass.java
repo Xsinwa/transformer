@@ -228,91 +228,96 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
                 break;
 
             case R.id.transformer:
-                if (mCheckId == R.id.Drc){
-                    if (TextUtils.isEmpty(input) || TextUtils.isEmpty(tempT1.getInput()) || TextUtils.isEmpty(tempT2.getInput())){
-                        Toast.makeText(this, "请输入数据！", Toast.LENGTH_SHORT).show();
-                    }else {
-                        for (int i = 0; i < tempList1.size(); i++) {
-                            if (!TextUtils.isEmpty(tempList1.get(i))) {
-                                double ab = (Double.parseDouble(tempT2.getInput().toString()) + 235) / (Double.parseDouble(tempT1.getInput().toString()) + 235) * Double.parseDouble(tempList1.get(i));
-                                output1List.add(ab + "");
+                if (!isOrderInput()){
+                    Toast.makeText(this, "请按顺序输入！", Toast.LENGTH_SHORT).show();
+                }else {
+                    getRealSize();
+                    if (mCheckId == R.id.Drc) {
+                        if (TextUtils.isEmpty(input) || TextUtils.isEmpty(tempT1.getInput()) || TextUtils.isEmpty(tempT2.getInput())) {
+                            Toast.makeText(this, "请输入数据！", Toast.LENGTH_SHORT).show();
+                        } else {
+                            for (int i = 0; i < list1; i++) {
+                                if (!TextUtils.isEmpty(tempList1.get(i))) {
+                                    double ab = (Double.parseDouble(tempT2.getInput().toString()) + 235) / (Double.parseDouble(tempT1.getInput().toString()) + 235) * Double.parseDouble(tempList1.get(i));
+                                    output1List.add(ab + "");
+                                }
                             }
-                        }
-                        for (int i = 0; i < tempList2.size(); i++) {
-                            if (!TextUtils.isEmpty(tempList2.get(i))) {
-                                double bc = (Double.parseDouble(tempT2.getInput().toString()) + 235) / (Double.parseDouble(tempT1.getInput().toString()) + 235) * Double.parseDouble(tempList2.get(i));
-                                output2List.add(bc + "");
+                            for (int i = 0; i < list2; i++) {
+                                if (!TextUtils.isEmpty(tempList2.get(i))) {
+                                    double bc = (Double.parseDouble(tempT2.getInput().toString()) + 235) / (Double.parseDouble(tempT1.getInput().toString()) + 235) * Double.parseDouble(tempList2.get(i));
+                                    output2List.add(bc + "");
+                                }
                             }
-                        }
-                        for (int i = 0; i < tempList3.size(); i++) {
-                            if (!TextUtils.isEmpty(tempList3.get(i))) {
-                                double ca = (Double.parseDouble(tempT2.getInput().toString()) + 235) / (Double.parseDouble(tempT1.getInput().toString()) + 235) * Double.parseDouble(tempList3.get(i));
-                                output3List.add(ca + "");
+                            for (int i = 0; i < list3; i++) {
+                                if (!TextUtils.isEmpty(tempList3.get(i))) {
+                                    double ca = (Double.parseDouble(tempT2.getInput().toString()) + 235) / (Double.parseDouble(tempT1.getInput().toString()) + 235) * Double.parseDouble(tempList3.get(i));
+                                    output3List.add(ca + "");
+                                }
                             }
+                            intent = new Intent(this, DrcTransActivity.class);
+                            intent.putStringArrayListExtra("output1", (ArrayList<String>) output1List);
+                            intent.putStringArrayListExtra("output2", (ArrayList<String>) output2List);
+                            intent.putStringArrayListExtra("output3", (ArrayList<String>) output3List);
+                            startActivity(intent);
                         }
-                        intent = new Intent(this, DrcTransActivity.class);
-                        intent.putStringArrayListExtra("output1", (ArrayList<String>) output1List);
-                        intent.putStringArrayListExtra("output2", (ArrayList<String>) output2List);
-                        intent.putStringArrayListExtra("output3", (ArrayList<String>) output3List);
-                        startActivity(intent);
-                    }
-                }else if (mCheckId == R.id.Bbrc){
-                    int minSize = Math.min(Math.min(tempList1.size(), tempList2.size()), Math.min(tempList1.size(), tempList3.size()));
-                    if(minSize == 0){
-                        Toast.makeText(this, "请输入数据！", Toast.LENGTH_SHORT).show();
-                    }else {
-                        for (int i = 0; i < minSize; i++) {
-                            double max1 = Math.max(Double.parseDouble(tempList1.get(i).toString()), Double.parseDouble(tempList2.get(i).toString()));
-                            double max2 = Math.max(Double.parseDouble(tempList1.get(i).toString()), Double.parseDouble(tempList3.get(i).toString()));
-                            double min1 = Math.min(Double.parseDouble(tempList1.get(i).toString()), Double.parseDouble(tempList2.get(i).toString()));
-                            double min2 = Math.min(Double.parseDouble(tempList1.get(i).toString()), Double.parseDouble(tempList3.get(i).toString()));
-                            double max = Math.max(max1, max2);
-                            double min = Math.min(min1, min2);
-                            double aver = (Double.parseDouble(tempList1.get(i).toString()) + Double.parseDouble(tempList2.get(i).toString()) + Double.parseDouble(tempList3.get(i).toString())) / 3;
-                            double result = (max - min) / aver;
-                            outputList.add(result + "");
-                        }
-                        intent = new Intent(this, BbrcTransActivity.class);
-                        intent.putStringArrayListExtra("output", (ArrayList<String>) outputList);
-                        startActivity(intent);
-                    }
-
-                }else if (mCheckId == R.id.trans){
-                    int minSize = Math.min(Math.min(tempList1.size(), tempList2.size()), Math.min(tempList1.size(), tempList3.size()));
-                    if (minSize == 0){
-                        Toast.makeText(this, "请输入数据！", Toast.LENGTH_SHORT).show();
-                    }else {
-                        if (connCheckId == R.id.YMode) {
+                    } else if (mCheckId == R.id.Bbrc) {
+                        int minSize = Math.min(Math.min(list1, list2), Math.min(list1, list3));
+                        if (minSize == 0) {
+                            Toast.makeText(this, "请输入数据！", Toast.LENGTH_SHORT).show();
+                        } else {
                             for (int i = 0; i < minSize; i++) {
-                                double ab = Double.parseDouble(tempList1.get(i));
-                                double bc = Double.parseDouble(tempList2.get(i));
-                                double ca = Double.parseDouble(tempList3.get(i));
-                                double Ra = (ab + ca - bc) / 2;
-                                double Rb = (ab + bc - ca) / 2;
-                                double Rc = (bc + ca - ab) / 2;
-                                output1List.add(Ra + "");
-                                output2List.add(Rb + "");
-                                output3List.add(Rc + "");
+                                double max1 = Math.max(Double.parseDouble(tempList1.get(i).toString()), Double.parseDouble(tempList2.get(i).toString()));
+                                double max2 = Math.max(Double.parseDouble(tempList1.get(i).toString()), Double.parseDouble(tempList3.get(i).toString()));
+                                double min1 = Math.min(Double.parseDouble(tempList1.get(i).toString()), Double.parseDouble(tempList2.get(i).toString()));
+                                double min2 = Math.min(Double.parseDouble(tempList1.get(i).toString()), Double.parseDouble(tempList3.get(i).toString()));
+                                double max = Math.max(max1, max2);
+                                double min = Math.min(min1, min2);
+                                double aver = (Double.parseDouble(tempList1.get(i).toString()) + Double.parseDouble(tempList2.get(i).toString()) + Double.parseDouble(tempList3.get(i).toString())) / 3;
+                                double result = (max - min) / aver;
+                                outputList.add(result + "");
                             }
-
-                        } else if (connCheckId == R.id.TMode) {
-                            for (int i = 0; i < minSize; i++) {
-                                double ab = Double.parseDouble(tempList1.get(i));
-                                double bc = Double.parseDouble(tempList2.get(i));
-                                double ca = Double.parseDouble(tempList3.get(i));
-                                double Ra = (ca - (ab + bc + ca) / 2) - ab * bc / (ca - (ab + bc + ca) / 2);
-                                double Rb = (ab - (ab + bc + ca) / 2) - ca * bc / (ab - (ab + bc + ca) / 2);
-                                double Rc = (bc - (ab + bc + ca) / 2) - ca * ab / (bc - (ab + bc + ca) / 2);
-                                output1List.add(Ra + "");
-                                output2List.add(Rb + "");
-                                output3List.add(Rc + "");
-                            }
+                            intent = new Intent(this, BbrcTransActivity.class);
+                            intent.putStringArrayListExtra("output", (ArrayList<String>) outputList);
+                            startActivity(intent);
                         }
-                        intent = new Intent(this, TTransActivity.class);
-                        intent.putStringArrayListExtra("output1", (ArrayList<String>) output1List);
-                        intent.putStringArrayListExtra("output2", (ArrayList<String>) output2List);
-                        intent.putStringArrayListExtra("output3", (ArrayList<String>) output3List);
-                        startActivity(intent);
+
+                    } else if (mCheckId == R.id.trans) {
+                        int minSize = Math.min(Math.min(list1, list2), Math.min(list1, list3));
+                        if (minSize == 0) {
+                            Toast.makeText(this, "请输入数据！", Toast.LENGTH_SHORT).show();
+                        } else {
+                            if (connCheckId == R.id.YMode) {
+                                for (int i = 0; i < minSize; i++) {
+                                    double ab = Double.parseDouble(tempList1.get(i));
+                                    double bc = Double.parseDouble(tempList2.get(i));
+                                    double ca = Double.parseDouble(tempList3.get(i));
+                                    double Ra = (ab + ca - bc) / 2;
+                                    double Rb = (ab + bc - ca) / 2;
+                                    double Rc = (bc + ca - ab) / 2;
+                                    output1List.add(Ra + "");
+                                    output2List.add(Rb + "");
+                                    output3List.add(Rc + "");
+                                }
+
+                            } else if (connCheckId == R.id.TMode) {
+                                for (int i = 0; i < minSize; i++) {
+                                    double ab = Double.parseDouble(tempList1.get(i));
+                                    double bc = Double.parseDouble(tempList2.get(i));
+                                    double ca = Double.parseDouble(tempList3.get(i));
+                                    double Ra = (ca - (ab + bc + ca) / 2) - ab * bc / (ca - (ab + bc + ca) / 2);
+                                    double Rb = (ab - (ab + bc + ca) / 2) - ca * bc / (ab - (ab + bc + ca) / 2);
+                                    double Rc = (bc - (ab + bc + ca) / 2) - ca * ab / (bc - (ab + bc + ca) / 2);
+                                    output1List.add(Ra + "");
+                                    output2List.add(Rb + "");
+                                    output3List.add(Rc + "");
+                                }
+                            }
+                            intent = new Intent(this, TTransActivity.class);
+                            intent.putStringArrayListExtra("output1", (ArrayList<String>) output1List);
+                            intent.putStringArrayListExtra("output2", (ArrayList<String>) output2List);
+                            intent.putStringArrayListExtra("output3", (ArrayList<String>) output3List);
+                            startActivity(intent);
+                        }
                     }
                 }
                 break;
@@ -330,15 +335,46 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
             if (i == 0)
                 input = ItemList.get(i).getRab();
             if (!TextUtils.isEmpty(ItemList.get(i).getRab())){
-                input1List.add(i,ItemList.get(i).getRab());
+                input1List.add(i, ItemList.get(i).getRab());
+            }else {
+                input1List.add(i, "");
             }
             if (!TextUtils.isEmpty(ItemList.get(i).getRbc())){
-                input2List.add(i,ItemList.get(i).getRbc());
+                input2List.add(i, ItemList.get(i).getRbc());
+            }else {
+                input2List.add(i, "");
             }
             if (!TextUtils.isEmpty(ItemList.get(i).getRca())){
-                input3List.add(i,ItemList.get(i).getRca());
+                input3List.add(i, ItemList.get(i).getRca());
+            }else {
+                input3List.add(i, "");
             }
         }
+    }
+
+    public Boolean isOrderInput(){
+        boolean flag = true;
+        for (int i = 0; i < tempList1.size()-1; i++){
+            if (TextUtils.isEmpty(tempList1.get(i)) && !TextUtils.isEmpty(tempList1.get(i + 1))){
+                flag = false;
+                break;
+            }
+        }
+
+        for (int i = 0; i < tempList2.size()-1; i++){
+            if (TextUtils.isEmpty(tempList2.get(i)) && !TextUtils.isEmpty(tempList2.get(i + 1))){
+                flag = false;
+                break;
+            }
+        }
+
+        for (int i = 0; i < tempList3.size()-1; i++){
+            if (TextUtils.isEmpty(tempList3.get(i)) && !TextUtils.isEmpty(tempList3.get(i + 1))){
+                flag = false;
+                break;
+            }
+        }
+        return flag;
     }
 
     private void setTempList(List<String> input1List, List<String> input2List, List<String> input3List) {
@@ -353,26 +389,26 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
         }
     }
 
-//    private void getRealSize() {
-//        for (int i = 0; i < tempList1.size(); i++){
-//            if (TextUtils.isEmpty(tempList1.get(i))) {
-//                list1 = i;
-//                break;
-//            }
-//        }
-//        for (int i = 0; i < tempList2.size(); i++){
-//            if (TextUtils.isEmpty(tempList2.get(i))) {
-//                list2 = i;
-//                break;
-//            }
-//        }
-//        for (int i = 0; i < tempList3.size(); i++){
-//            if (TextUtils.isEmpty(tempList3.get(i))) {
-//                list3 = i;
-//                break;
-//            }
-//        }
-//    }
+    private void getRealSize() {
+        for (int i = 0; i < tempList1.size(); i++){
+            if (TextUtils.isEmpty(tempList1.get(i))) {
+                list1 = i;
+                break;
+            }
+        }
+        for (int i = 0; i < tempList2.size(); i++){
+            if (TextUtils.isEmpty(tempList2.get(i))) {
+                list2 = i;
+                break;
+            }
+        }
+        for (int i = 0; i < tempList3.size(); i++){
+            if (TextUtils.isEmpty(tempList3.get(i))) {
+                list3 = i;
+                break;
+            }
+        }
+    }
 
 //    @Override
 //    public void onInputOneFill(int position, String s) {

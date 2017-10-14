@@ -5,7 +5,7 @@ import org.litepal.crud.DataSupport;
 /**
  * Created by Xsinwa on 2017/10/2.
  */
-public class ResultInfo extends DataSupport {
+public class ResultInfo  {
     private String result;
     private String date;
 

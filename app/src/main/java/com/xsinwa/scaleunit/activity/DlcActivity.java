@@ -114,7 +114,6 @@ public class DlcActivity extends AppCompatActivity implements View.OnClickListen
                     String time = timeFormat.format(date);
                     resultInfo.setDate(time);
                     resultInfo.setResult(DielLoss2.getText().toString());
-                    resultInfo.save();
                     ResultList.add(0, resultInfo);
                     mAdapter.notifyDataSetChanged();
                     DlcRecyclerView.invalidate();
