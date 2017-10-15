@@ -127,8 +127,8 @@ public class CableClass extends AppCompatActivity implements View.OnClickListene
     private MyEditText DRSR110;//单台电抗器直阻
     private MyEditText Isr110; //电抗器电感
     private Spinner ReactorConnMode110; //电抗器连接方式
-    private Spinner EVHVSpinner110;
-    private Spinner EVLVSpinner110; //励磁变低压抽头
+    private MyEditText tEVHV110;
+    private MyEditText tEVLV110; //励磁变低压抽头
     private Button c110Transform;
     private MyEditText cableLength110;
     private TextView ESL110; //等效电感
@@ -157,8 +157,8 @@ public class CableClass extends AppCompatActivity implements View.OnClickListene
     private MyEditText DRSR220;//单台电抗器直阻
     private MyEditText Isr220;//电抗器电感
     private Spinner ReactorConnMode220; //电抗器连接方式
-    private Spinner EVHVSpinner220;
-    private Spinner EVLVSpinner220; //励磁变低压抽头
+    private MyEditText tEVHV220;
+    private MyEditText tEVLV220; //励磁变低压抽头
     private Button c220Transform;
     private MyEditText cableLength220;
     private TextView ESL220; //等效电感
@@ -433,30 +433,8 @@ public class CableClass extends AppCompatActivity implements View.OnClickListene
 
             }
         });
-        EVHVSpinner110 = (Spinner) page110KV.findViewById(R.id.Evhvt);
-        EVHVSpinner110.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                evhv110Position = position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        EVLVSpinner110 = (Spinner) page110KV.findViewById(R.id.Evlvt);
-        EVLVSpinner110.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                evlv110Position = position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        tEVHV110 = (MyEditText) page110KV.findViewById(R.id.Evhvt);
+        tEVLV110 = (MyEditText) page110KV.findViewById(R.id.Evlvt);
         ratedVoltage110 = (MyEditText) page110KV.findViewById(R.id.rated_vol);
         ratedVoltage110.setInput("64");
         unitCap110 = (MyEditText) page110KV.findViewById(R.id.unitcap);
@@ -516,7 +494,9 @@ public class CableClass extends AppCompatActivity implements View.OnClickListene
         ratedVoltage220.setInput("128");
         unitCap220 = (MyEditText) page220KV.findViewById(R.id.unitcap);
         DRSR220 = (MyEditText) page220KV.findViewById(R.id.drsr);
+        DRSR220.setInput("327.8");
         Isr220 = (MyEditText) page220KV.findViewById(R.id.tISR);
+        Isr220.setInput("142");
         ReactorConnMode220 = (Spinner) page220KV.findViewById(R.id.reactor_conn_mode);
         ReactorConnMode220.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -529,30 +509,8 @@ public class CableClass extends AppCompatActivity implements View.OnClickListene
 
             }
         });
-        EVHVSpinner220 = (Spinner) page220KV.findViewById(R.id.Evhvt);
-        EVHVSpinner220.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                evhv220Position = position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        EVLVSpinner220 = (Spinner) page220KV.findViewById(R.id.Evlvt);
-        EVLVSpinner220.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                evlv220Position = position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        tEVHV220 = (MyEditText) page220KV.findViewById(R.id.Evhvt);
+        tEVLV220 = (MyEditText) page220KV.findViewById(R.id.Evlvt);
         c220Transform = (Button) page220KV.findViewById(R.id.cable_transform);
         c220Transform.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -790,7 +748,8 @@ public class CableClass extends AppCompatActivity implements View.OnClickListene
 
             case R.id.cable_transform:
                 if (TextUtils.isEmpty(cableLength110.getInput())|| TextUtils.isEmpty(Isr110.getInput()) || TextUtils.isEmpty(unitCap110.getInput())
-                        || TextUtils.isEmpty(ratedVoltage110.getInput()) || TextUtils.isEmpty(DRSR110.getInput())){
+                        || TextUtils.isEmpty(ratedVoltage110.getInput()) || TextUtils.isEmpty(DRSR110.getInput())
+                        || TextUtils.isEmpty(tEVHV110.getInput())  || TextUtils.isEmpty(tEVLV110.getInput())){
                     Toast.makeText(this, "请输入数据！", Toast.LENGTH_SHORT).show();
                 }else {
                     resultTransform110.setVisibility(View.VISIBLE);
@@ -806,8 +765,8 @@ public class CableClass extends AppCompatActivity implements View.OnClickListene
                     capa = Double.parseDouble(unitCap110.getInput()) * Double.parseDouble(cableLength110.getInput().toString());
                     fre = 1 / (2 * 3.14 * Math.sqrt(esl * capa * 0.000001));
                     hv = 2 * Double.parseDouble(ratedVoltage110.getInput()) * 1000 * fre * capa * 0.000001*2*3.14;
-                    evhv = Integer.parseInt(getResources().getStringArray(R.array.Evhvt_array)[evhv110Position]);
-                    evlv = Integer.parseInt(getResources().getStringArray(R.array.Evlvt_array)[evlv110Position]);
+                    evhv = Double.parseDouble(tEVHV110.getInput());
+                    evlv = Double.parseDouble(tEVLV110.getInput());
                     testCapa = Math.pow(2 * Double.parseDouble(ratedVoltage110.getInput()) * 1000, 2) * fre * capa * 0.000001 * 0.001 * 2 * 3.14;
                     qValue = fre * 2 * 3.14 * esl / edr;
                     evr = (double)evhv /evlv;
@@ -844,7 +803,8 @@ public class CableClass extends AppCompatActivity implements View.OnClickListene
 
     private void displayResultTransform() {
         if (TextUtils.isEmpty(cableLength220.getInput())|| TextUtils.isEmpty(Isr220.getInput()) || TextUtils.isEmpty(unitCap220.getInput())
-                || TextUtils.isEmpty(ratedVoltage220.getInput()) || TextUtils.isEmpty(DRSR220.getInput())){
+                || TextUtils.isEmpty(ratedVoltage220.getInput()) || TextUtils.isEmpty(DRSR220.getInput())
+                || TextUtils.isEmpty(tEVHV220.getInput())  || TextUtils.isEmpty(tEVLV220.getInput())){
             Toast.makeText(this, "请输入数据！", Toast.LENGTH_SHORT).show();
         }else {
             resultTransform220.setVisibility(View.VISIBLE);
@@ -860,8 +820,8 @@ public class CableClass extends AppCompatActivity implements View.OnClickListene
             capa = Double.parseDouble(unitCap220.getInput()) * Double.parseDouble(cableLength220.getInput().toString());
             fre = 1 / (2 * 3.14 * Math.sqrt(esl * capa * 0.000001));
             hv = 2 * Double.parseDouble(ratedVoltage220.getInput()) * 1000 * fre * capa * 0.000001*2*3.14;
-            evhv = Integer.parseInt(getResources().getStringArray(R.array.Evhvt_array)[evhv220Position]);
-            evlv = Integer.parseInt(getResources().getStringArray(R.array.Evlvt_array)[evlv220Position]);
+            evhv = Double.parseDouble(tEVHV220.getInput());
+            evlv = Double.parseDouble(tEVLV220.getInput());
             testCapa = Math.pow(2 * Double.parseDouble(ratedVoltage220.getInput()) * 1000, 2) * fre * capa * 0.000001 * 0.001 * 2 * 3.14;
             qValue = fre * 2 * 3.14 * esl / edr;
             evr = (double) evhv /evlv;

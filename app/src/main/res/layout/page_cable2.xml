@@ -26,27 +26,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingRight="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="励磁变高压抽头(V):"
-            android:textSize="16sp" />
-        <Spinner
-            android:id="@+id/Evhvt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:entries="@array/Evhvt_array"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="5dp"
         android:paddingTop="5dp">
@@ -67,6 +46,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="励磁变高压抽头(V):"
+            android:textSize="16sp" />
+        <com.xsinwa.scaleunit.ui.MyEditText
+            android:id="@+id/Evhvt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_shape"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="5dp"
         android:paddingTop="5dp">
@@ -78,11 +79,13 @@
             android:text="励磁变低压抽头(V):"
             android:textSize="16sp"/>
 
-        <Spinner
+        <com.xsinwa.scaleunit.ui.MyEditText
             android:id="@+id/Evlvt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/Evlvt_array"/>
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittext_shape"/>
     </LinearLayout>
 
     <LinearLayout
