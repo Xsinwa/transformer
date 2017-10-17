@@ -331,6 +331,10 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
         input1List.clear();
         input2List.clear();
         input3List.clear();
+        output1List.clear();
+        output2List.clear();
+        output3List.clear();
+        outputList.clear();
         for (int i = 0; i < ItemList.size(); i++){
             if (i == 0)
                 input = ItemList.get(i).getRab();
