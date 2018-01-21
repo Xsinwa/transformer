@@ -21,9 +21,9 @@
         android:text="@string/Equipment"
         android:textSize="20dp"
         android:gravity="center_horizontal"
-        android:textColor="@android:color/holo_blue_light"/>
+        android:textColor="@android:color/white"/>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -32,29 +32,30 @@
 
         <Button
             android:id="@+id/transformer"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="18dp"
-            android:paddingRight="20dp"
+            android:layout_weight="1"
+            android:layout_marginRight="30dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="@string/transformer"
-            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
             android:background="@drawable/button_style" />
 
         <Button
             android:id="@+id/cable"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="18dp"
-            android:paddingRight="20dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="@string/cables"
-            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
             android:background="@drawable/button_style" />
-    </RelativeLayout>
+    </LinearLayout>
 
 
     <View
@@ -72,65 +73,80 @@
         android:text="@string/testProject"
         android:textSize="20dp"
         android:gravity="center_horizontal"
-        android:textColor="@android:color/holo_blue_light"/>
+        android:textColor="@android:color/white"/>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="100dp">
-
+        android:layout_marginRight="30dp">
         <Button
             android:id="@+id/DRC"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="18dp"
-            android:paddingRight="20dp"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginRight="30dp"
             android:text="@string/DRC"
-            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
             android:background="@drawable/button_style"/>
 
         <Button
             android:id="@+id/DLC"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="18dp"
-            android:paddingRight="20dp"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginLeft="30dp"
             android:text="@string/DLC"
-            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
             android:background="@drawable/button_style"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="100dp">
         <Button
             android:id="@+id/IRC"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/DRC"
+            android:layout_weight="1"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
-            android:padding="10dp"
+            android:layout_marginRight="30dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="@string/IRC"
+            android:textColor="@android:color/white"
             android:textSize="16sp"
             android:background="@drawable/button_style"/>
 
         <Button
             android:id="@+id/ITC"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_below="@id/DLC"
-            android:layout_alignParentRight="true"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
-            android:padding="10dp"
+            android:layout_marginLeft="30dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="@string/ITC"
+            android:textColor="@android:color/white"
             android:textSize="16sp"
             android:background="@drawable/button_style"/>
-    </RelativeLayout>
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             userName.setText(preferences.getString("ACCOUNT", ""));
             passwords.setText(preferences.getString("PASSWORD", ""));
 
-            if(preferences.getBoolean("AUTO_LOGIN_STATE", false)){
+            if (preferences.getBoolean("AUTO_LOGIN_STATE", false)) {
                 autoLogin.setChecked(true);
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
@@ -116,6 +116,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onCheckedChanged(CompoundButton button, boolean isChecked) {
         switch (button.getId()){
             case R.id.checkbox_rem_password:
+                remPassword.setChecked(isChecked);
                 if(remPassword.isChecked()){
                     preferences.edit().putBoolean("REM_PASSWORD_STATE", true).commit();
                 }else {
@@ -123,7 +124,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
                 break;
             case R.id.checkbox_auto_login:
-                if(remPassword.isChecked()){
+                autoLogin.setChecked(isChecked);
+                if(autoLogin.isChecked()){
                     preferences.edit().putBoolean("AUTO_LOGIN_STATE", true).commit();
                 }else {
                     preferences.edit().putBoolean("AUTO_LOGIN_STATE", false).commit();
