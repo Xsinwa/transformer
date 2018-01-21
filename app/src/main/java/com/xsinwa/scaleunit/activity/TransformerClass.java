@@ -398,18 +398,24 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
             if (TextUtils.isEmpty(tempList1.get(i))) {
                 list1 = i;
                 break;
+            }else {
+                list1++;
             }
         }
         for (int i = 0; i < tempList2.size(); i++){
             if (TextUtils.isEmpty(tempList2.get(i))) {
                 list2 = i;
                 break;
+            }else {
+                list2++;
             }
         }
         for (int i = 0; i < tempList3.size(); i++){
             if (TextUtils.isEmpty(tempList3.get(i))) {
                 list3 = i;
                 break;
+            }else {
+                list3++;
             }
         }
     }

@@ -220,7 +220,7 @@ public class Page10KV extends Fragment implements View.OnClickListener {
                    hv = 2 * Double.parseDouble(rvItems[rv10Position]) * 1000 * fre * capa * 0.000001*2*3.14;
                    testCapa = Math.pow(2 * Double.parseDouble(rvItems[rv10Position]) * 1000, 2) * fre * capa * 0.000001 * 0.001 * 2 * 3.14;
                    qValue = fre * 2 * 3.14 * esl / edr;
-                   evr = evhv / 200;
+                   evr = evhv / evlv;
                    inCurrent = hv * evr;
                    outVoltage = edr * hv;
                    inVoltage = outVoltage / evr ;
