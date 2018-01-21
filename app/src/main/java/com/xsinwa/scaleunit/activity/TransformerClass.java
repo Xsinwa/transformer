@@ -382,14 +382,20 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
     }
 
     private void setTempList(List<String> input1List, List<String> input2List, List<String> input3List) {
+        tempList1.clear();
+        tempList2.clear();
+        tempList3.clear();
         if (input1List.size() >0 ){
-            tempList1 = input1List;
+            tempList1.addAll(input1List);
+//            tempList1 = input1List;
         }
         if (input2List.size() > 0) {
-            tempList2 = input2List;
+            tempList2.addAll(input2List);
+//            tempList2 = input2List;
         }
         if (input3List.size() > 0) {
-            tempList3 = input3List;
+            tempList3.addAll(input3List);
+//            tempList3 = input3List;
         }
     }
 
@@ -399,7 +405,7 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
                 list1 = i;
                 break;
             }else {
-                list1++;
+                list1 = i;
             }
         }
         for (int i = 0; i < tempList2.size(); i++){
@@ -407,7 +413,7 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
                 list2 = i;
                 break;
             }else {
-                list2++;
+                list2 = i;
             }
         }
         for (int i = 0; i < tempList3.size(); i++){
@@ -415,7 +421,7 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
                 list3 = i;
                 break;
             }else {
-                list3++;
+                list3 = i;
             }
         }
     }
