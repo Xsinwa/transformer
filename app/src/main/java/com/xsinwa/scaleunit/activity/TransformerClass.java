@@ -405,7 +405,7 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
                 list1 = i;
                 break;
             }else {
-                list1 = i;
+                list1 = i + 1;
             }
         }
         for (int i = 0; i < tempList2.size(); i++){
@@ -413,7 +413,7 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
                 list2 = i;
                 break;
             }else {
-                list2 = i;
+                list2 = i + 1;
             }
         }
         for (int i = 0; i < tempList3.size(); i++){
@@ -421,7 +421,7 @@ public class TransformerClass extends AppCompatActivity implements View.OnClickL
                 list3 = i;
                 break;
             }else {
-                list3 = i;
+                list3 = i + 1;
             }
         }
     }
